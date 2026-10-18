@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+dialog:modal {
+  /* Prevent scroll gestures inside the modal from chaining to the underlying page */
+  overscroll-behavior: contain;
+}
+
+dialog::backdrop {
+  /* Set overflow: hidden so ::backdrop becomes a non-scrollable scroll container that honors overscroll-behavior */
+  overflow: hidden;
+  overscroll-behavior: contain;
+  background-color: rgba(2, 6, 23, 0.78);
+  backdrop-filter: blur(4px);
+}
