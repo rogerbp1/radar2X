@@ -1,5 +1,18 @@
 import type { Metadata } from "next";
+import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "30X HackRadar | Inteligencia de Tendencias, Ganchos y Matriz JEV",
@@ -13,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className="dark">
-      <body className="bg-slate-950 text-slate-100 antialiased selection:bg-emerald-500/30 selection:text-emerald-200 min-h-screen">
+    <html lang="es" className={`${jakarta.variable} ${jetbrainsMono.variable}`}>
+      <body className="bg-white text-slate-900 font-sans antialiased selection:bg-emerald-500/15 selection:text-emerald-900 min-h-screen">
         {children}
       </body>
     </html>

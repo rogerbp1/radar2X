@@ -2,15 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --scrollbar-thumb: #cbd5e1;
+  --scrollbar-track: #f8fafc;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+@supports not (scrollbar-color: auto) {
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 9999px;
+  }
+  *::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+}
+
 dialog:modal {
-  /* Prevent scroll gestures inside the modal from chaining to the underlying page */
   overscroll-behavior: contain;
 }
 
 dialog::backdrop {
-  /* Set overflow: hidden so ::backdrop becomes a non-scrollable scroll container that honors overscroll-behavior */
   overflow: hidden;
   overscroll-behavior: contain;
-  background-color: rgba(2, 6, 23, 0.78);
-  backdrop-filter: blur(4px);
+  background-color: rgba(15, 23, 42, 0.35);
+  backdrop-filter: blur(6px);
 }
